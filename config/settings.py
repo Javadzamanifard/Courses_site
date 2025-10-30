@@ -43,7 +43,10 @@ INSTALLED_APPS = [
     
     # ThirdParty Apps
     'allauth',
-    'allauth.account'
+    'allauth.account',
+    
+    # Local apps
+    'accounts',
 ]
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
@@ -151,3 +154,6 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
