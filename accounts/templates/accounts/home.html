@@ -44,10 +44,10 @@
                         <i class="bi bi-box-arrow-right"></i> خروج
                     </a>
                 {% else %}
-                    <a href="#" class="btn btn-outline-light btn-sm me-2">
+                    <a href="{% url 'account_login' %}" class="btn btn-outline-light btn-sm me-2">
                         <i class="bi bi-box-arrow-in-right"></i> ورود
                     </a>
-                    <a href="#" class="btn btn-light btn-sm">
+                    <a href="{% url 'account_signup' %}" class="btn btn-light btn-sm">
                         <i class="bi bi-person-plus"></i> ثبت‌نام
                     </a>
                 {% endif %}

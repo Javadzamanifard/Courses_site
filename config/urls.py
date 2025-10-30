@@ -17,7 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.urls import reverse_lazy
+from allauth.account.views import PasswordChangeView
+
 urlpatterns = [
+    path(
+        'accounts/password/change/',
+        PasswordChangeView.as_view(success_url=reverse_lazy('accounts:home')),
+        name='account_change_password',
+    ),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('accounts.urls')),
