@@ -1,0 +1,160 @@
+/* === پس‌زمینه نرم و لایت === */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* === کارت وسط صفحه === */
+.login-card-wrapper {
+    width: 100%;
+    max-width: 460px;
+}
+
+/* === کارت شفاف و سایه نرم === */
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* === هدر کارت === */
+.card-header {
+    border-bottom: 1px solid #f1f3f5;
+    background: white;
+    color: #1f2937;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.card-header h4 {
+    font-weight: 600;
+}
+
+.card-header p {
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+/* === فیلدهای ورودی === */
+.input-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"],
+.login-card input[type="email"] {
+    width: 100%;
+    padding: 10px 16px 10px 48px;  /* جمع و جورتر */
+    border: 1px solid #d1d5db;
+    border-radius: 12px;  /* نرم و ظریف */
+    font-size: 0.95rem;   /* متن کمی کوچک‌تر */
+    background-color: #f9fafb;
+    color: #1f2937;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.login-card input[type="text"]:focus,
+.login-card input[type="password"]:focus,
+.login-card input[type="email"]:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.login-card input[type="text"]::placeholder,
+.login-card input[type="password"]::placeholder,
+.login-card input[type="email"]::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+}
+
+/* checkbox استایل */
+.login-card input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #3b82f6;
+    cursor: pointer;
+}
+
+/* === دکمه ورود === */
+.btn-login {
+    background: #3b82f6;
+    color: white;
+    border-radius: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* === کارت فوتر === */
+.card-footer {
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem; /* فاصله کم بین خطوط */
+}
+
+/* متن "Forgot your password?" سمت راست */
+.card-footer .forgot-password {
+    display: block;
+    text-align: right;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+/* لینک‌ها */
+.card-footer a {
+    transition: all 0.2s ease;
+    font-weight: 500;
+    color: #3b82f6;  /* آبی هماهنگ */
+    text-decoration: none;
+}
+
+.card-footer a:hover {
+    text-decoration: underline;
+}
+
+/* لینک Create Account نزدیک به متن بالایی */
+.card-footer .create-account {
+    margin-top: 0.25rem; /* فاصله کم */
+    color: #3b82f6;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* فیلد Remember Me */
+.form-check-label {
+    cursor: pointer;
+    font-size: 0.875rem;
+}

@@ -1,0 +1,104 @@
+
+/* logout style */
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .logout-card {
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        max-width: 480px;
+        width: 90%;
+        margin: 0 auto; 
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .logout-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.18);
+    }
+    .card-header {
+        background: white;
+        padding: 32px 32px 16px;
+        text-align: center;
+        border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .card-header h4 {
+        font-weight: 600;
+        color: #1e293b;
+        font-size: 1.5rem;
+        letter-spacing: -0.3px;
+    }
+    .card-icon {
+        width: 72px;
+        height: 72px;
+        background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: #0ea5e9;
+        font-size: 2.1rem;
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.12);
+    }
+    .card-body {
+        padding: 24px 32px 32px;
+        text-align: center;
+    }
+    .card-body p.lead {
+        font-size: 1.25rem;
+        color: #334155;
+        margin-bottom: 12px;
+        font-weight: 500;
+    }
+    .card-body p.text-muted {
+        color: #64748b;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    .btn-group {
+        display: flex;
+        gap: 14px;
+        margin-top: 28px;
+    }
+    .btn {
+        flex: 1;
+        padding: 14px;
+        border-radius: 16px;
+        font-weight: 600;
+        font-size: 1.02rem;
+        transition: all 0.25s ease;
+        border: none;
+        letter-spacing: 0.4px;
+    }
+    .btn-logout {
+        background: #f8fafc;
+        color: #dc2626;
+    }
+    .btn-logout:hover {
+        background: #fef2f2;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(220, 38, 38, 0.18);
+    }
+    .btn-cancel {
+        background: #f1f5f9;
+        color: #475569;
+    }
+    .btn-cancel:hover {
+        background: #e2e8f0;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(71, 85, 105, 0.12);
+    }
+
+/*-------------------------------------------------------------------------------------*/

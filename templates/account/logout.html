@@ -1,0 +1,39 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}Confirm Logout{% endblock %}
+
+
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/logout.css' %}">
+{% endblock CSS %}
+
+
+{% block content %}
+<div class="logout-card center">
+    <div class="card-header">
+        <div class="card-icon">
+            <i class="bi bi-box-arrow-right"></i>
+        </div>
+        <h4>Confirm Logout</h4>
+    </div>
+    <div class="card-body">
+        <p class="lead">Are you sure you want to log out?</p>
+        <p class="text-muted">
+            Your session will end, and you’ll need to sign in again to continue.
+        </p>
+
+        <div class="btn-group">
+            <form method="post" class="w-100">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-logout">
+                    <i class="bi bi-door-closed me-1"></i> Log Out
+                </button>
+            </form>
+            <a href="#" class="btn btn-cancel d-flex align-items-center justify-content-center">
+                <i class="bi bi-arrow-left me-1"></i> Cancel
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

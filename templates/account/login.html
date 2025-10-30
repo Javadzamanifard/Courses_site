@@ -1,0 +1,64 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock CSS %}
+
+{% block content %}
+<div class="login-page">
+    <div class="login-card-wrapper">
+        <div class="login-card">
+            <div class="card-header text-center py-4">
+                <h4 class="mb-1">Welcome Back</h4>
+                <p class="text-muted small">Sign in to continue</p>
+            </div>
+            <div class="card-body p-4">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-icon"><i class="bi bi-person"></i></span>
+                        {{ form.login }}
+                    </div>
+                    {% if form.login.errors %}
+                        <div class="text-danger small mb-2">{{ form.login.errors }}</div>
+                    {% endif %}
+
+                    <div class="input-group mb-3">
+                        <span class="input-icon"><i class="bi bi-lock"></i></span>
+                        {{ form.password }}
+                    </div>
+                    {% if form.password.errors %}
+                        <div class="text-danger small mb-3">{{ form.password.errors }}</div>
+                    {% endif %}
+
+                    {% if form.remember %}
+                    <div class="form-check mb-3">
+                        {{ form.remember }}
+                        <label class="form-check-label small" for="{{ form.remember.id_for_label }}">
+                            Keep me signed in
+                        </label>
+                    </div>
+                    {% endif %}
+
+                    <button type="submit" class="btn-login w-100 py-2">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+                    </button>
+                </form>
+            </div>
+            <div class="card-footer text-center py-3">
+                <small class="text-muted d-block mb-1">Forgot your password?</small>
+                <a href="{% url 'account_reset_password' %}" class="text-decoration-none text-primary fw-medium">
+                    Reset Password
+                </a>
+                <hr class="my-2">
+                <small class="text-muted d-block mb-1">Don’t have an account?</small>
+                <a href="{% url 'account_signup' %}" class="text-decoration-none text-success fw-medium mt-3">
+                    Create Account
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

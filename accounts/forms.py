@@ -25,7 +25,10 @@ class CustomSignupForm(SignupForm):
         max_length=15,
         label='Phone Number',
         required=True,
-        help_text='09123456789'
+        widget=forms.TextInput(attrs={
+            'placeholder': '09123456789',
+            'class': 'form-control' 
+        })
     )
     is_instructor = forms.BooleanField(
         required=False,
