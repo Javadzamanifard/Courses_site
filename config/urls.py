@@ -16,11 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 from django.urls import reverse_lazy
 from allauth.account.views import PasswordChangeView
 
 urlpatterns = [
+    path('password-reset/complete/', 
+        TemplateView.as_view(template_name='account/password_reset_from_key_done.html'), 
+        name="password_reset_complete"
+    ),
+    path(
+        'password-reset/done/',
+        TemplateView.as_view(template_name='account/password_reset_done.html'),
+        name='password_reset_done'
+    ),
     path(
         'accounts/password/change/',
         PasswordChangeView.as_view(success_url=reverse_lazy('accounts:home')),

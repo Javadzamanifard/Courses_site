@@ -5,6 +5,8 @@ from django.contrib.auth import login
 
 from .forms import CustomSignupForm
 
+from allauth.account.views import PasswordResetView, PasswordResetFromKeyView
+
 
 class CustomSignUpView(generic.CreateView):
     form_class = CustomSignupForm
@@ -20,3 +22,11 @@ class CustomSignUpView(generic.CreateView):
 
 def homeview(request):
     return render(request, 'accounts/home.html')
+
+
+class CustomPasswordRest(PasswordResetView):
+    success_url = reverse_lazy('password_reset_done')
+
+
+class CustomPasswordResetFromKeyView(PasswordResetFromKeyView):
+    success_url = reverse_lazy('password_reset_complete')
