@@ -1,0 +1,8 @@
+"""
+برای ساخت دیتابیس در mysql:
+open cmd cd to mysql folder and type mysql -u root -p and then:
+    CREATE DATABASE dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+    CREATE USER 'dbusername'@'localhost' IDENTIFIED BY 'dbpassword';
+    GRANT ALL PRIVILEGES ON dbname.* TO 'dbusername'@'localhost';
+    FLUSH PRIVILEGES;
+"""
