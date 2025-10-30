@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth import login
@@ -16,3 +16,7 @@ class CustomSignUpView(generic.CreateView):
         user = form.save(self.request)
         login(self.request, user)
         return redirect(self.success_url)
+
+
+def homeview(request):
+    return render(request, 'accounts/home.html')

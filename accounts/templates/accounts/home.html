@@ -1,0 +1,118 @@
+{% extends "_base.html" %}
+{% block title %}صفحه اصلی{% endblock %}
+{% comment %} 
+{% block content %}
+<div class="text-center mt-5">
+    <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width: 600px;">
+        <div class="card-body p-5">
+            <h1 class="fw-bold mb-3 text-primary">🎉 خوش آمدید {{ user.username }}!</h1>
+            <p class="lead text-muted">
+                ثبت‌نام شما با موفقیت انجام شد.  
+                این صفحه فعلاً به عنوان صفحه‌ی تست برای ورود موفق نمایش داده می‌شود.
+            </p>
+            
+            <hr class="my-4">
+
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="#" class="btn btn-outline-primary btn-lg rounded-pill px-4">
+                    مشاهده پروفایل
+                </a>
+                <a href="#" class="btn btn-danger btn-lg rounded-pill px-4">
+                    خروج
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% endcomment %}
+
+
+
+{% block content %}
+<header class="mb-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-mortarboard-fill"></i> آموزشگاه من
+            </a>
+            <div class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                    <span class="navbar-text me-3 text-white">
+                        سلام، {{ user.username }}!
+                    </span>
+                    <a href="#" class="btn btn-outline-light btn-sm">
+                        <i class="bi bi-box-arrow-right"></i> خروج
+                    </a>
+                {% else %}
+                    <a href="#" class="btn btn-outline-light btn-sm me-2">
+                        <i class="bi bi-box-arrow-in-right"></i> ورود
+                    </a>
+                    <a href="#" class="btn btn-light btn-sm">
+                        <i class="bi bi-person-plus"></i> ثبت‌نام
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="text-center mb-5">
+    <h1 class="display-5 fw-bold text-primary">به سایت آموزشی ما خوش آمدید!</h1>
+    <p class="lead text-muted mt-3">
+        بهترین دوره‌های آموزشی، هم رایگان و هم پولی، با بهترین مدرس‌ها
+    </p>
+    {% if user.is_authenticated %}
+        <a href="#" class="btn btn-success btn-lg mt-3">
+            <i class="bi bi-play-circle"></i> شروع یادگیری
+        </a>
+    {% else %}
+        <a href="#" class="btn btn-primary btn-lg mt-3">
+            <i class="bi bi-rocket-takeoff"></i> همین حالا شروع کن!
+        </a>
+    {% endif %}
+</div>
+
+<!-- بخش نمایشی دوره‌ها (فقط برای نمایش - بعداً پر می‌شه) -->
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center">
+                <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                    <i class="bi bi-globe fs-1 text-primary"></i>
+                </div>
+                <h5>دوره‌های رایگان</h5>
+                <p class="text-muted">بیش از ۵۰ دوره رایگان در زمینه‌های مختلف برنامه‌نویسی و طراحی</p>
+                <a href="#" class="btn btn-outline-primary btn-sm">مشاهده</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center">
+                <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                    <i class="bi bi-award fs-1 text-warning"></i>
+                </div>
+                <h5>دوره‌های ویژه</h5>
+                <p class="text-muted">آموزش‌های تخصصی با گواهی معتبر و پشتیبانی مدرس</p>
+                <a href="#" class="btn btn-outline-warning btn-sm">مشاهده</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center">
+                <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                    <i class="bi bi-person-video3 fs-1 text-success"></i>
+                </div>
+                <h5>مدرس شوید</h5>
+                <p class="text-muted">اگر متخصص هستید، دوره خود را بسازید و درآمدزایی کنید</p>
+                <a href="#" class="btn btn-outline-success btn-sm">اطلاعات بیشتر</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="mt-5 pt-4 border-top text-center text-muted">
+    <p>&copy; ۱۴۰۴ سایت آموزشی من. تمامی حقوق محفوظ است.</p>
+</footer>
+{% endblock %}

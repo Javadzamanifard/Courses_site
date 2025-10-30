@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     # ThirdParty Apps
     'allauth',
     'allauth.account',
+    'crispy_forms',
+    'crispy_bootstrap5',
     
     # Local apps
     'accounts',
@@ -69,7 +71,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -160,3 +162,12 @@ ACCOUNT_FORMS = {
 
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+
+# Bootstrap settings
+CRISPY_ALLOWED_TEMPLAATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
