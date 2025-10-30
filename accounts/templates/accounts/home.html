@@ -40,7 +40,7 @@
                     <span class="navbar-text me-3 text-white">
                         سلام، {{ user.username }}!
                     </span>
-                    <a href="#" class="btn btn-outline-light btn-sm">
+                    <a href="{% url 'account_logout' %}" class="btn btn-outline-light btn-sm">
                         <i class="bi bi-box-arrow-right"></i> خروج
                     </a>
                 {% else %}
