@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     
     # Local apps
     'accounts',
+    'profiles',
 ]
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
@@ -176,6 +177,8 @@ LOGOUT_REDIRECT_URL = 'accounts:home'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # development
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

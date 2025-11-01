@@ -1,5 +1,6 @@
 asgiref==3.10.0
 beautifulsoup4==4.14.2
+crispy-bootstrap5==2025.6
 Django==4.2.25
 django-allauth==65.12.1
 django-bootstrap-v5==1.0.11
@@ -7,6 +8,7 @@ django-crispy-forms==2.4
 environs==14.4.0
 marshmallow==4.0.1
 mysqlclient==2.2.7
+pillow==12.0.0
 python-dotenv==1.2.1
 soupsieve==2.8
 sqlparse==0.5.3
