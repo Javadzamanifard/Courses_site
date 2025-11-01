@@ -38,7 +38,7 @@ class Profile(models.Model):
     @property
     def get_fullname(self):
         if self.user.first_name and self.user.last_name:
-            return f'FullName: {self.user.first_name} {self.user.last_name}'
+            return f'{self.user.first_name} {self.user.last_name}'
         return self.user.username
     
     

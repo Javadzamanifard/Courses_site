@@ -11,13 +11,14 @@ from .validations import validate_phone_number, normalize_phone_number
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'phone_number', 'password1', 'password2']
+        fields = ['username', 'email', 'phone_number', 'is_instructor', 'is_student', ]
+        
 
 
-class CustomUserChangeForm(UserCreationForm):
+class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'phone_number', 'password1', 'password2']
+        fields = ['username', 'email', 'phone_number', 'is_instructor', 'is_student', 'is_staff']
 
 
 class CustomSignupForm(SignupForm):   

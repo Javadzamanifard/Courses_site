@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import generic
 
 from .models import Profile
+
+from .forms import UserUpdateForm, ProfileUpdateForm
+
+from django.contrib.auth.decorators import login_required
 
 
 class ProfileDetailView(generic.DetailView):
@@ -18,3 +22,25 @@ class ProfileDetailView(generic.DetailView):
         profile_user = self.get_object().user
         context['profile_user'] = profile_user
         return context
+
+
+@login_required
+def profile_update_view(request):
+    user = request.user
+    profile = user.profile
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return redirect(profile.get_absolute_url())
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
+    
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form
+    }
+    return render(request, 'profiles/profile_form.html', context)

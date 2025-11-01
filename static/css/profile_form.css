@@ -1,0 +1,137 @@
+/* === پس‌زمینه صفحه === */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* === کارت فرم === */
+.card {
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.15);
+}
+
+/* === هدر کارت === */
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+/* === فرم === */
+.card-body form {
+    padding: 1rem 0.5rem;
+}
+
+/* === فیلدهای Crispy === */
+.card-body .form-control {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    background-color: #f9fafb;
+    color: #1f2937;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.card-body .form-control:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+}
+
+.card-body .form-control::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+}
+
+/* === fieldset === */
+.card-body fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.card-body legend {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.8rem;
+}
+
+/* === دکمه‌ها === */
+.card-body .btn-success {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.card-body .btn-success:hover {
+    background: linear-gradient(135deg, #3b37c0, #5c2eda);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.card-body .btn-outline-secondary {
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.card-body .btn-outline-secondary:hover {
+    background-color: #f3f4f6;
+    transform: translateY(-2px);
+}
+
+/* === فاصله دکمه‌ها === */
+.card-body .form-group button {
+    min-width: 120px;
+}
+
+/* === ریسپانسیو === */
+@media (max-width: 768px) {
+    .card-body form {
+        padding: 0.5rem;
+    }
+}
+
+/* دکمه Back */
+.card-body .btn-outline-secondary {
+    border: 2px solid #6b7280; /* خاکستری ملایم */
+    color: #374151;             /* متن تیره */
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.card-body .btn-outline-secondary:hover {
+    background-color: #f3f4f6; /* خاکستری خیلی روشن */
+    color: #111827;             /* متن تیره‌تر */
+    transform: translateY(-2px);
+}
+
+/* Focus / Active / Clicked */
+.card-body .btn-outline-secondary:focus,
+.card-body .btn-outline-secondary:active {
+    background-color: #f3f4f6; /* پس‌زمینه ثابت */
+    color: #111827;             /* متن تیره */
+    box-shadow: none;
+}

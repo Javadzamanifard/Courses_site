@@ -1,0 +1,51 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/profile_form.css' %}">
+{% endblock CSS %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <!-- هدر کارت فقط عنوان -->
+                <div class="card-header text-center">
+                    <h2 class="mb-0">ویرایش پروفایل</h2>
+                </div>
+
+                <!-- بدنه کارت -->
+                <div class="card-body">
+                    <form id="profile-form" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <!-- اطلاعات کاربری -->
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">اطلاعات کاربری</legend>
+                            {{ user_form|crispy }}
+                        </fieldset>
+
+                        <!-- اطلاعات پروفایل -->
+                        <fieldset class="form-group mt-4">
+                            <legend class="border-bottom mb-4">اطلاعات پروفایل</legend>
+                            {{ profile_form|crispy }}
+                        </fieldset>
+
+                        <!-- دکمه‌ها پایین فرم -->
+                        <div class="form-group mt-4 text-center">
+                            <button type="button" class="btn btn-outline-secondary me-2" onclick="history.back()">
+                                Back
+                            </button>
+                            <button type="submit" class="btn btn-success">
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,80 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock CSS %}
+
+{% block content %}
+<div class="profile-page">
+    <div class="profile-card">
+        <!-- بنر بالا -->
+        <div class="profile-banner"></div>
+
+        <div class="profile-content">
+            <!-- سمت راست: اواتار، نام، badge و بیو -->
+            <div class="profile-right text-center">
+                {% if profile.avatar %}
+                    <div class="avatar-container mb-3">
+                        <img src="{{ profile.avatar.url }}" alt="Avatar" class="avatar">
+                    </div>
+                {% endif %}
+
+                <h3 class="user-name mb-2">{{ user.username }}</h3>
+
+                {% if user.is_instructor %}
+                    <span class="badge badge-instructor mb-3">Teacher</span>
+                {% else %}
+                    <span class="badge badge-student mb-3">Student</span>
+                {% endif %}
+
+                <!-- بیو -->
+                <div class="bio-section mt-3">
+                    <h5 class="bio-title mb-2">Biography</h5>
+                    {% if profile.bio %}
+                        <p class="bio-text">{{ profile.bio }}</p>
+                    {% else %}
+                        <p class="bio-text text-muted fst-italic">There is no biography recorded for this user.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- سمت چپ: اطلاعات کاربری -->
+            <div class="profile-left">
+                <div class="info-box">
+                    <div class="info-item">
+                        <span class="info-icon"><i class="fas fa-user"></i></span>
+                        <strong>Full Name :</strong> {{ profile.get_fullname }}
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon"><i class="fas fa-envelope"></i></span>
+                        <strong>Email :</strong> {{ user.email }}
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon"><i class="fas fa-phone"></i></span>
+                        <strong>Phone Number :</strong> {{ user.phone_number|default:"ثبت نشده" }}
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon"><i class="fas fa-calendar"></i></span>
+                        <strong>Date Joined :</strong> {{ user.date_joined|date:"Y/m/d" }}
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon"><i class="fas fa-calendar"></i></span>
+                        <strong>Birth Date :</strong> {{ profile.birth_date|date:"Y/m/d" }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if user.is_authenticated and user == request.user %}
+            <div class="d-flex justify-content-center mb-5 mt-4">
+                <a href="{% url 'profiles:update' %}" class="btn btn-outline-primary px-4 py-2">
+                    <i class="bi bi-pencil-square ms-2"></i> Edit Profile
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

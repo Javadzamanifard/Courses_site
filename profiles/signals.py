@@ -5,8 +5,8 @@ from accounts.models import CustomUser
 from .models import Profile
 
 @receiver(post_save, sender=CustomUser)
-def create_update_profile(sender, instance, created, **kwarg):
+def create_update_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     elif hasattr(instance, 'profile'):
-        instance.objects.save()
+        instance.profile.save()

@@ -43,6 +43,9 @@
                     <a href="{% url 'account_logout' %}" class="btn btn-outline-light btn-sm">
                         <i class="bi bi-box-arrow-right"></i> خروج
                     </a>
+                    <a href="{% url 'profiles:detail' user.profile.slug %}" class="btn btn-outline-light btn-sm">
+                        <i class="bi bi-box-arrow-right"></i> profile
+                    </a>
                 {% else %}
                     <a href="{% url 'account_login' %}" class="btn btn-outline-light btn-sm me-2">
                         <i class="bi bi-box-arrow-in-right"></i> ورود
