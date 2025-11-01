@@ -7,6 +7,8 @@ from .forms import UserUpdateForm, ProfileUpdateForm
 
 from django.contrib.auth.decorators import login_required
 
+from django.contrib import messages
+
 
 class ProfileDetailView(generic.DetailView):
     model = Profile
@@ -34,7 +36,10 @@ def profile_update_view(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, 'Your profile has been successfully updated.')
             return redirect(profile.get_absolute_url())
+        else:
+            messages.error(request, 'Please check the form for errors.')
     else:
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.profile)

@@ -7,6 +7,7 @@ from .forms import CustomSignupForm
 
 from allauth.account.views import PasswordResetView, PasswordResetFromKeyView
 
+from django.contrib import messages
 
 class CustomSignUpView(generic.CreateView):
     form_class = CustomSignupForm
@@ -17,6 +18,7 @@ class CustomSignUpView(generic.CreateView):
     def form_valid(self, form):
         user = form.save(self.request)
         login(self.request, user)
+        messages.success(self.request, 'You have successfully logged in.')
         return redirect(self.success_url)
 
 
