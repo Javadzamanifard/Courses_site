@@ -1,5 +1,6 @@
 {% extends "_base.html" %}
 {% block title %}صفحه اصلی{% endblock %}
+{% load i18n %}
 {% comment %} 
 {% block content %}
 <div class="text-center mt-5">
@@ -33,7 +34,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded shadow">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">
-                <i class="bi bi-mortarboard-fill"></i> آموزشگاه من
+                <i class="bi bi-mortarboard-fill"></i> {% trans "My school" %}
             </a>
             <div class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
@@ -41,17 +42,17 @@
                         سلام، {{ user.username }}!
                     </span>
                     <a href="{% url 'account_logout' %}" class="btn btn-outline-light btn-sm">
-                        <i class="bi bi-box-arrow-right"></i> خروج
+                        <i class="bi bi-box-arrow-right"></i> {% trans "Logout" %}
                     </a>
                     <a href="{% url 'profiles:detail' user.profile.slug %}" class="btn btn-outline-light btn-sm">
-                        <i class="bi bi-box-arrow-right"></i> profile
+                        <i class="bi bi-box-arrow-right"></i> {% trans "profile" %}
                     </a>
                 {% else %}
                     <a href="{% url 'account_login' %}" class="btn btn-outline-light btn-sm me-2">
-                        <i class="bi bi-box-arrow-in-right"></i> ورود
+                        <i class="bi bi-box-arrow-in-right"></i> {% trans "Login" %}
                     </a>
                     <a href="{% url 'account_signup' %}" class="btn btn-light btn-sm">
-                        <i class="bi bi-person-plus"></i> ثبت‌نام
+                        <i class="bi bi-person-plus"></i> {% trans "Signup" %}
                     </a>
                 {% endif %}
             </div>

@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-01 07:50-0700\n"
+"PO-Revision-Date: 2025-11-01 07:54+0330\n"
+"Last-Translator:   <mohammad@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: .\templates\profiles\profile_detail.html:28
+msgid "Teacher"
+msgstr "مدرس"
+
+#: .\templates\profiles\profile_detail.html:30
+msgid "Student"
+msgstr "دانشجو"
+
+#: .\templates\profiles\profile_detail.html:35
+msgid "Biography"
+msgstr "بیوگرافی"
+
+#: .\templates\profiles\profile_detail.html:39
+msgid "There is no biography recorded for this user."
+msgstr "بیوگرافی برای این کاربر ثبت نشده است"
+
+#: .\templates\profiles\profile_detail.html:49
+msgid "Full Name"
+msgstr "نام کامل"
+
+#: .\templates\profiles\profile_detail.html:53
+msgid "Email"
+msgstr "ایمیل"
+
+#: .\templates\profiles\profile_detail.html:57
+msgid "Phone Number "
+msgstr "شماره همراه"
+
+#: .\templates\profiles\profile_detail.html:61
+msgid "Date Joined"
+msgstr "تاریخ عضویت"
+
+#: .\templates\profiles\profile_detail.html:65
+msgid "Birth Date"
+msgstr "تاریخ تولد"
+
+#: .\templates\profiles\profile_detail.html:74
+msgid "Edit Profile"
+msgstr "ویرایش پروفایل"
+
+#: .\templates\profiles\profile_form.html:16
+msgid "Edit profile"
+msgstr "ویرایش پروفایل"
+
+#: .\templates\profiles\profile_form.html:26
+msgid "User info"
+msgstr "اطلاعات کاربری"
+
+#: .\templates\profiles\profile_form.html:32
+msgid "Profile info"
+msgstr "اطلاعات پروفایل"
+
+#: .\templates\profiles\profile_form.html:39
+msgid "Back"
+msgstr "بازگشت"
+
+#: .\templates\profiles\profile_form.html:42
+msgid "Save"
+msgstr "ذخیره"
+
+#: .\views.py:40
+msgid "Your profile has been successfully updated."
+msgstr "پروفایل شما با موفقیت به‌روزرسانی شد."
+
+#: .\views.py:43
+msgid "Please check the form for errors."
+msgstr "لطفا فرم را از نظر خطا بررسی کنید."
