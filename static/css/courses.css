@@ -119,3 +119,40 @@
     padding: 0 1.2rem;
     line-height: 1.5;
   }
+.filter-btn {
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: white !important;
+    display: inline-block;
+}
+
+/* گزینه‌های فعال */
+.filter-all {
+    background-color: #38a169 !important;
+}
+
+.filter-free {
+    background-color: #3182ce !important;
+}
+
+.filter-paid {
+    background-color: #ecc94b !important;
+    color: #2d3748 !important;
+}
+
+/* گزینه‌های غیرفعال */
+.filter-outline {
+    background: transparent !important;
+    border: 2px solid #cbd5e0 !important;
+    color: #2d3748 !important;
+}
+
+/* hover */
+.filter-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}

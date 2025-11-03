@@ -1,0 +1,63 @@
+{% load i18n %}
+{% load static %}
+
+
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+{% endblock CSS %}
+<header class="site-header">
+  <div class="header-container">
+
+    <!-- سمت راست -->
+    <div class="nav-right">
+      <div class="brand">
+        <i class="fa fa-graduation-cap"></i>
+        <span>{% trans "آموزشگاه من" %}</span>
+      </div>
+      <nav class="main-nav">
+        <a href="{% url 'accounts:home' %}">{% trans "خانه" %}</a>
+        <a href="#">{% trans "درباره ما" %}</a>
+      </nav>
+    </div>
+
+    <!-- وسط -->
+    <div class="search-bar">
+      <form method="get" action="{% url 'courses:course_list' %}">
+        <input type="text" name="q" placeholder="{% trans 'جستجوی دوره، مدرس یا موضوع...' %}" autocomplete="off">
+        <button type="submit" aria-label="{% trans 'جستجو' %}">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- سمت چپ -->
+    <div class="nav-left">
+      <a href="#" class="icon" title="{% trans 'سبد خرید' %}">
+        <i class="fa fa-shopping-cart"></i>
+      </a>
+      <a href="#" class="icon" title="{% trans 'علاقه‌مندی‌ها' %}">
+        <i class="fa fa-heart"></i>
+      </a>
+
+      <!-- منوی پروفایل -->
+      <div class="dropdown profile-menu">
+        <button class="dropbtn">
+          <i class="bi bi-person-circle"></i>
+          <span>{{ user.first_name|default:user.username|default:_("کاربر") }}</span>
+          <i class="arrow-down"></i>
+        </button>
+        <div class="dropdown-content left-aligned">
+          <a href="{% url 'profiles:detail' user.profile.slug %}">{% trans "پروفایل من" %}</a>
+          <a href="#">{% trans "دوره‌های من" %}</a>
+          <div class="dropdown-divider"></div>
+          {% if user.is_authenticated %}
+            <a href="{% url 'account_logout' %}" class="logout-link">{% trans "خروج" %}</a>
+          {% else %}
+            <a href="{% url 'account_login' %}">{% trans "ورود" %}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>

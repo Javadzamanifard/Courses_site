@@ -11,6 +11,16 @@
 <div class="container py-5">
   <h1 class="text-center mb-5 fw-bold" style="color: #2c3e50;">📚{% trans "Training courses" %}</h1>
 
+  <!-- نوار فیلتر دوره‌ها -->
+  <div class="course-filter mb-4 d-flex gap-2 flex-wrap">
+      <a href="{% url 'courses:course_list' %}" 
+        class="filter-btn {% if not course_type %}filter-all{% else %}filter-outline{% endif %}">{% trans "همه دوره‌ها" %}</a>
+      <a href="{% url 'courses:course_list' %}?type=free" 
+        class="filter-btn {% if course_type == 'free' %}filter-free{% else %}filter-outline{% endif %}">{% trans "رایگان" %}</a>
+      <a href="{% url 'courses:course_list' %}?type=paid" 
+        class="filter-btn {% if course_type == 'paid' %}filter-paid{% else %}filter-outline{% endif %}">{% trans "ویژه" %}</a>
+  </div>
+
   <div class="row g-4">
     {% for course in courses %}
     <div class="col-lg-4 col-md-6 col-sm-12">

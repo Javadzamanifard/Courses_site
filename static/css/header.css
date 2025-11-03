@@ -1,0 +1,230 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+.site-header {
+  background: linear-gradient(120deg, #f8fbff 0%, #eef4ff 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 90, 255, 0.08); /* 🌤️ سایه ملایم آبی */
+}
+
+/* خط پایین قبلی حذف می‌شه */
+.site-header::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: rgba(0, 102, 255, 0.15); /* آبی ملایم */
+  box-shadow: 0 3px 10px rgba(0, 102, 255, 0.1); /* 🌈 سایه ملایم و پخش‌شده */
+}
+
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: rtl;
+  font-family: "Vazirmatn", "IRANSans", sans-serif;
+}
+
+/* ---------- سمت راست ---------- */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #004aad;
+  position: relative;
+  cursor: pointer;
+}
+
+.brand::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  width: 0%;
+  height: 2px;
+  background: #0078ff;
+  transition: width 0.3s ease;
+}
+
+.brand:hover::after {
+  width: 100%;
+}
+
+.main-nav a,
+.dropbtn {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.main-nav a:hover,
+.dropbtn:hover {
+  background-color: rgba(0, 122, 255, 0.1);
+  color: #005fcc;
+}
+
+/* ---------- Dropdown ---------- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  min-width: 190px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  padding: 10px 0;
+  z-index: 1001;
+  text-align: right;
+  animation: fadeIn 0.25s ease;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 8px 15px;
+  display: block;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f5f9ff;
+  color: #004aad;
+  padding-right: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ---------- وسط: نوار جست‌وجو ---------- */
+.search-bar form {
+  display: flex;
+  align-items: center;
+  background: #f0f4fa;
+  border-radius: 30px;
+  padding: 5px 14px;
+  width: 340px;
+  border: 1px solid #d6e0f3;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar form:hover {
+  box-shadow: 0 0 10px rgba(0, 122, 255, 0.15);
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px 10px;
+  width: 100%;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.search-bar button {
+  border: none;
+  background: #0078ff;
+  color: white;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.search-bar button:hover {
+  background: #005fcc;
+  transform: scale(1.05);
+}
+
+/* ---------- سمت چپ ---------- */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-left .icon {
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.25s ease;
+}
+
+.nav-left .icon:hover {
+  color: #0078ff;
+  transform: scale(1.15);
+}
+
+/* ---------- پروفایل ---------- */
+.profile-menu .dropbtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.25s ease;
+}
+
+.profile-menu .dropbtn:hover {
+  color: #005fcc;
+}
+
+.profile-menu img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #dce3f1;
+}
+
+.dropdown-content.left {
+  right: 0;
+  left: auto;
+}
+
+/* ---------- انیمیشن ---------- */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-5px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* ---------- واکنش‌گرا ---------- */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-bar form {
+    width: 95%;
+  }
+
+  .nav-right, .nav-left {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
