@@ -22,7 +22,7 @@ class Course(models.Model):
                     )
     created_at = jmodels.jDateTimeField(auto_now_add=True, verbose_name=_("تاریخ ایجاد"))
     updated_at = jmodels.jDateTimeField(auto_now=True, verbose_name=_("تاریخ بروزرسانی"))
-    price = models.PositiveIntegerField(verbose_name=_("قیمت دوره (به تومان)"))
+    price = models.PositiveIntegerField(blank=True, null=True, verbose_name=_("قیمت دوره (به تومان)"))
     is_free = models.BooleanField(default=False, verbose_name=_("رایگان بودن دوره"))
     is_active = models.BooleanField(default=True, verbose_name=_("فعال بودن دوره"))
     slug = models.SlugField(max_length=255, unique=True, verbose_name=_("اسلاگ دوره"))

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     
     'django_jalali',
     'jalali_date',
+    'django.contrib.humanize',
     
     # ThirdParty Apps
     'allauth',
