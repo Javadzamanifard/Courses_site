@@ -1,0 +1,54 @@
+{% load static %}
+{% load i18n %}
+
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock CSS %}
+
+<footer class="site-footer mt-5 pt-5 pb-4">
+  <div class="container">
+
+    <div class="row g-4">
+
+      <!-- ستون اول: درباره ما -->
+      <div class="col-md-4">
+        <div class="footer-card">
+          <h5 class="footer-title">{% trans "آموزشگاه من" %}</h5>
+          <p class="footer-desc">{% trans "بهترین دوره‌های آموزشی آنلاین، رایگان و ویژه، با مدرس‌های حرفه‌ای و پشتیبانی کامل" %}</p>
+        </div>
+      </div>
+
+      <!-- ستون دوم: لینک‌های مهم -->
+      <div class="col-md-4">
+        <div class="footer-card">
+          <h5 class="footer-title">{% trans "لینک‌های سریع" %}</h5>
+          <ul class="footer-links list-unstyled">
+            <li><a href="{% url 'accounts:home' %}">{% trans "خانه" %}</a></li>
+            <li><a href="#">{% trans "درباره ما" %}</a></li>
+            <li><a href="{% url 'courses:course_list' %}">{% trans "دوره‌ها" %}</a></li>
+            <li><a href="#">{% trans "تماس با ما" %}</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ستون سوم: شبکه‌های اجتماعی -->
+      <div class="col-md-4">
+        <div class="footer-card">
+          <h5 class="footer-title">{% trans "ما را دنبال کنید" %}</h5>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="text-center mt-3 text-muted small">
+      &copy; ۱۴۰۴ {% trans "آموزشگاه من" %}. {% trans "تمامی حقوق محفوظ است." %}
+    </div>
+  </div>
+</footer>
+
