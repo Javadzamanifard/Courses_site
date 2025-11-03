@@ -2,6 +2,7 @@
 {% load static i18n%}
 {% load jformat %}
 {% load jalali_tags %}
+{% load ennum_to_fanum_tags %}
 
 {% block title %}Profile{% endblock %}
 
@@ -56,7 +57,7 @@
                     </div>
                     <div class="info-item">
                         <span class="info-icon"><i class="fas fa-phone"></i></span>
-                        <strong>{% trans "Phone Number " %}:</strong> {{ user.phone_number|default:"ثبت نشده" }}
+                        <strong>{% trans "Phone Number " %}:</strong> {{ user.phone_number| en2fa | default:"ثبت نشده" }}
                     </div>
                     <div class="info-item">
                         <span class="info-icon"><i class="fas fa-calendar"></i></span>

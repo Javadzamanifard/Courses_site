@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     # Local apps
     'accounts',
     'profiles',
+    'persiantrans',
 ]
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
