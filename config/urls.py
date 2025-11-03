@@ -43,6 +43,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('profiles/', include('profiles.urls')),
     path('rosetta/', include('rosetta.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 

@@ -41,12 +41,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'django_jalali',
+    'jalali_date',
+    
     # ThirdParty Apps
     'allauth',
     'allauth.account',
     'crispy_forms',
     'crispy_bootstrap5',
     'rosetta',
+    'ckeditor',
+    'ckeditor_uploader',
     
     # Local apps
     'accounts',
@@ -190,3 +195,16 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # development
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+# Optional: پیکربندی toolbar
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+        'extraPlugins': ','.join(['codesnippet', 'uploadimage']),
+    },
+}

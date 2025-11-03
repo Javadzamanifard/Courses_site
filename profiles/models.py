@@ -6,13 +6,18 @@ from django.utils.text import slugify
 import os
 from PIL import Image
 
+from ckeditor.fields import RichTextField
+from django_jalali.db import models as jmodels
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
-    bio = models.CharField(max_length=255, blank=True)
+    # bio = models.CharField(max_length=255, blank=True)
+    bio = RichTextField(blank=True, null=True)
     avatar = models.ImageField(upload_to='profiles/user_profiles', blank=True, default='avatars/defaul.jpg')
-    birth_date = models.DateField(blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    # birth_date = models.DateField(blank=True, null=True)
+    birth_date = jmodels.jDateField(blank=True, null=True)
+    # created_at = models.DateTimeField(auto_now_add=True)
+    created_at = jmodels.jDateTimeField(auto_now_add=True)
     slug = models.SlugField(blank=True, null=True, unique=True)
     
     

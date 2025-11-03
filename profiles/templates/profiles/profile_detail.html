@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
 {% load static i18n%}
+{% load jformat %}
+{% load jalali_tags %}
 
 {% block title %}Profile{% endblock %}
 
@@ -34,7 +36,7 @@
                 <div class="bio-section mt-3">
                     <h5 class="bio-title mb-2">{% trans "Biography" %}</h5>
                     {% if profile.bio %}
-                        <p class="bio-text">{{ profile.bio }}</p>
+                        <p class="bio-text">{{ profile.bio | safe }}</p>
                     {% else %}
                         <p class="bio-text text-muted fst-italic">{% trans "There is no biography recorded for this user." %}</p>
                     {% endif %}
@@ -58,20 +60,33 @@
                     </div>
                     <div class="info-item">
                         <span class="info-icon"><i class="fas fa-calendar"></i></span>
-                        <strong>{% trans "Date Joined" %} :</strong> {{ user.date_joined|date:"Y/m/d" }}
+                        {% comment %} <strong>{% trans "Date Joined" %} :</strong> {{ user.date_joined|jformat:"%A %d %B %Y"}} {% endcomment %}
+                        <strong>{% trans "Date Joined" %} :</strong> {{ user.date_joined|to_jalali:'%Y/%m/%d' }}
                     </div>
-                    <div class="info-item">
-                        <span class="info-icon"><i class="fas fa-calendar"></i></span>
-                        <strong>{% trans "Birth Date" %} :</strong> {{ profile.birth_date|date:"Y/m/d" }}
-                    </div>
+                    {% if profile.birth_date %}
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-calendar"></i></span>
+                            {% comment %} <strong>{% trans "Birth Date" %} :</strong> {{ profile.birth_date|date:"Y/m/d" }} {% endcomment %}
+                            <strong>{% trans "Birth Date" %} :</strong> {{ profile.birth_date|jformat:"%A %d %B %Y" }}
+                        </div>
+                    {% else %}
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-calendar"></i></span>
+                            {% comment %} <strong>{% trans "Birth Date" %} :</strong> {{ profile.birth_date|date:"Y/m/d" }} {% endcomment %}
+                            <strong>{% trans "Birth Date" %} :</strong> {% trans "Not registered" %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
 
         {% if user.is_authenticated and user == request.user %}
-            <div class="d-flex justify-content-center mb-5 mt-4">
+            <div class="d-flex justify-content-center mb-5 mt-4 gap-3">
                 <a href="{% url 'profiles:update' %}" class="btn btn-outline-primary px-4 py-2">
                     <i class="bi bi-pencil-square ms-2"></i> {% trans "Edit Profile" %}
+                </a>
+                <a href="{% url 'accounts:home' %}" class="btn btn-outline-primary px-4 py-2">
+                    <i class="bi bi-back"></i></i> {% trans "Back to Home" %}
                 </a>
             </div>
         {% endif %}
