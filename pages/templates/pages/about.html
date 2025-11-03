@@ -1,0 +1,45 @@
+{% extends "_base.html" %}
+{% load i18n static %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/pages.css' %}">
+{% endblock CSS %}
+{% block title %}{% trans "درباره ما" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-primary">{% trans "درباره آموزشگاه ما" %}</h1>
+        <p class="lead text-muted mt-3">{% trans "هدف ما ارائه بهترین دوره‌های آموزشی آنلاین با کیفیت بالا و پشتیبانی حرفه‌ای است." %}</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="bi bi-people fs-1 text-primary mb-3"></i>
+                    <h5 class="card-title">{% trans "اساتید حرفه‌ای" %}</h5>
+                    <p class="card-text text-muted">{% trans "مدرس‌های متخصص و با تجربه در حوزه‌های مختلف برنامه‌نویسی و طراحی" %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="bi bi-journal-bookmark fs-1 text-success mb-3"></i>
+                    <h5 class="card-title">{% trans "دوره‌های جامع" %}</h5>
+                    <p class="card-text text-muted">{% trans "دوره‌های رایگان و ویژه با سرفصل‌های به روز و کاربردی" %}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="bi bi-headset fs-1 text-warning mb-3"></i>
+                    <h5 class="card-title">{% trans "پشتیبانی ۲۴/۷" %}</h5>
+                    <p class="card-text text-muted">{% trans "پشتیبانی سریع و حرفه‌ای برای هر دوره و سوالات دانشجویان" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

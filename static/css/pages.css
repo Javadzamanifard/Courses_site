@@ -1,0 +1,113 @@
+/* پس‌زمینه و فونت کل صفحات */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2d3748;
+}
+
+/* کارت‌ها */
+.card, .footer-card {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover, .footer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* تیترها */
+h1, h2, h3, h4, h5 {
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.lead {
+    color: #4a5568;
+}
+
+/* دکمه‌ها */
+.btn-primary, .btn-success, .btn-outline-primary, .btn-outline-success {
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover, .btn-success:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+/* فرم‌ها */
+form .form-control {
+    border-radius: 12px;
+    border: 1px solid #cbd5e0;
+    transition: all 0.2s ease;
+}
+
+form .form-control:focus {
+    border-color: #3182ce;
+    box-shadow: 0 0 0 2px rgba(49,130,206,0.2);
+}
+
+/* فوتر */
+.site-footer {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+    box-shadow: inset 0 4px 12px rgba(0,0,0,0.05);
+    color: #4a5568;
+    font-size: 0.95rem;
+    border-radius: 18px 18px 0 0;
+    padding-bottom: 2rem;
+}
+
+.footer-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-desc {
+    line-height: 1.6;
+}
+
+.footer-links li a {
+    color: #4a5568;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #3182ce;
+    transform: translateX(4px);
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #edf2f7;
+    color: #2d3748;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.social-icons a[href*="telegram"] { background: #26a5df; color: white; }
+.social-icons a[href*="whatsapp"] { background: #25d366; color: white; }
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .site-footer .row {
+        text-align: center;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}

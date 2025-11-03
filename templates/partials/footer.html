@@ -24,9 +24,10 @@
           <h5 class="footer-title">{% trans "لینک‌های سریع" %}</h5>
           <ul class="footer-links list-unstyled">
             <li><a href="{% url 'accounts:home' %}">{% trans "خانه" %}</a></li>
-            <li><a href="#">{% trans "درباره ما" %}</a></li>
+            <li><a href="{% url 'pages:about_us' %}">{% trans "درباره ما" %}</a></li>
             <li><a href="{% url 'courses:course_list' %}">{% trans "دوره‌ها" %}</a></li>
-            <li><a href="#">{% trans "تماس با ما" %}</a></li>
+            <li><a href="{% url 'pages:contact_us' %}">{% trans "تماس با ما" %}</a></li>
+            <li><a href="{% url 'pages:terms_conditions' %}">{% trans "قوانین ما"%}</a></li>
           </ul>
         </div>
       </div>

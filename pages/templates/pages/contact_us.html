@@ -1,0 +1,38 @@
+{% extends "_base.html" %}
+{% load i18n static%}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/pages.css' %}">
+{% endblock CSS %}
+{% block title %}{% trans "تماس با ما" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-primary">{% trans "تماس با ما" %}</h1>
+        <p class="lead text-muted mt-3">{% trans "برای هر گونه سوال، پیشنهاد یا همکاری با ما در ارتباط باشید." %}</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-4 p-4">
+                <form method="post" action="#">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">{% trans "نام شما" %}</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">{% trans "ایمیل" %}</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">{% trans "پیام" %}</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill">{% trans "ارسال پیام" %}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

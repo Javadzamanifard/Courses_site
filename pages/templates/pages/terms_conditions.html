@@ -1,0 +1,25 @@
+{% extends "_base.html" %}
+{% load i18n static %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/pages.css' %}">
+{% endblock CSS %}
+{% block title %}{% trans "قوانین و شرایط" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-primary">{% trans "قوانین و شرایط استفاده" %}</h1>
+        <p class="lead text-muted mt-3">{% trans "لطفاً قبل از استفاده از سایت و ثبت‌نام در دوره‌ها، قوانین زیر را مطالعه کنید." %}</p>
+    </div>
+
+    <div class="card shadow-lg border-0 rounded-4 p-4">
+        <ol class="terms-list">
+            <li>{% trans "استفاده از محتوا فقط برای اهداف شخصی و آموزشی مجاز است." %}</li>
+            <li>{% trans "کپی‌برداری، انتشار یا فروش محتوا بدون اجازه ممنوع است." %}</li>
+            <li>{% trans "ثبت‌نام در دوره‌های ویژه مستلزم پرداخت هزینه و رعایت قوانین سایت است." %}</li>
+            <li>{% trans "پشتیبانی تنها برای دانشجویان ثبت‌نام شده ارائه می‌شود." %}</li>
+            <li>{% trans "ما حق تغییر قوانین و شرایط را در هر زمان برای خود محفوظ می‌داریم." %}</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}
