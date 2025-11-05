@@ -228,3 +228,94 @@
     justify-content: center;
   }
 }
+/* ====== تم روشن (پیش‌فرض) ====== */
+html {
+  --bg: #f8fafc;
+  --text: #1e293b;
+  --header-bg: #ffffff;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --link: #2563eb;
+}
+
+/* ====== تم تاریک ====== */
+html.dark {
+  --bg: #0f172a;
+  --text: #e2e8f0;
+  --header-bg: #1e293b;
+  --card-bg: #1e293b;
+  --border: #334155;
+  --link: #3b82f6;
+}
+
+/* ====== پایه ====== */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Vazirmatn", sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ====== هدر ====== */
+.site-header {
+  background-color: var(--header-bg);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.4s ease;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ====== لینک‌ها ====== */
+a, .icon {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover, .icon:hover {
+  color: var(--link);
+}
+
+/* ====== دکمه تغییر تم ====== */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin: 0 0.4rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg) scale(1.1);
+  color: var(--link);
+}
+
+/* ====== کارت‌ها، باکس‌ها ====== */
+.card, .accordion-item, .modal-content {
+  background: var(--card-bg);
+  color: var(--text);
+  border-color: var(--border);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ====== فیلدهای فرم ====== */
+input, textarea, select {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+

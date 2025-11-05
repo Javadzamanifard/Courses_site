@@ -7,6 +7,7 @@ from .models import Course, Lesson, Enrollment
 class LessonInline(admin.TabularInline):
     model = Lesson
     extra = 0
+    exclude = ["content"]
 
 
 # Register the Course model with the admin site

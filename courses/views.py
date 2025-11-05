@@ -34,3 +34,12 @@ class CourseListView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['course_type'] = self.request.GET.get('type', None)
         return context
+
+
+class CourseDetailView(generic.DetailView):
+    model = Course
+    template_name = 'courses/course_detail.html'
+    context_object_name = 'course'
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+    queryset = Course.objects.filter(is_active=True)
