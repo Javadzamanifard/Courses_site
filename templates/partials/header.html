@@ -35,8 +35,15 @@
       <button id="themeToggle" class="theme-toggle" title="{% trans 'تغییر تم' %}">
         <i id="themeIcon" class="fa fa-moon"></i>
       </button>
-      <a href="#" class="icon" title="{% trans 'سبد خرید' %}">
+      <a href="{% url 'cart:detail' %}" class="icon cart-icon" title="{% trans 'سبد خرید' %}">
         <i class="fa fa-shopping-cart"></i>
+        {% if request.session.cart %}
+          {% with total_items=request.session.cart|length %}
+            {% if total_items > 0 %}
+              <span class="cart-badge">{{ total_items }}</span>
+            {% endif %}
+          {% endwith %}
+        {% endif %}
       </a>
       <a href="#" class="icon" title="{% trans 'علاقه‌مندی‌ها' %}">
         <i class="fa fa-heart"></i>

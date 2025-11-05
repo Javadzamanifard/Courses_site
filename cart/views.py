@@ -17,8 +17,8 @@ def cart_detail(request):
 def cart_add(request, course_id):
     cart = Cart(request)
     course = get_object_or_404(Course, pk=course_id)
-    quantity = int(request.Get.get('quantity', 1))
-    override_quantity = request.Get.get('override_quantity', 'False') == True
+    quantity = int(request.GET.get('quantity', 1))
+    override_quantity = request.GET.get('override_quantity', 'False') == True
     cart.add_to_cart(course, quantity, override_quantity)
     return redirect('cart:detail')
 
@@ -27,7 +27,7 @@ def cart_remove(request, course_id):
     cart = Cart(request)
     course = get_object_or_404(Course, pk=course_id)
     cart.remove_from_cart(course)
-    return redirect('cart:deatail')
+    return redirect('cart:detail')
 
 
 def cart_clear(request):

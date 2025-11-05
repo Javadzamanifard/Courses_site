@@ -1,0 +1,68 @@
+{% extends "_base.html" %}
+{% load i18n static humanize %}
+{% load ennum_to_fanum_tags %}
+{% block title %}{% trans "سبد خرید" %}{% endblock %}
+
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="cart-container">
+  <h1 class="cart-title">{% trans "سبد خرید من" %}</h1>
+
+  {% if cart|length > 0 %}
+  <div class="cart-items">
+    {% for item in cart %}
+    <div class="cart-item">
+      <div class="cart-item-image">
+        {% if course.preview_video %}
+            <video poster="{% if course.cover_image %}{{ course.cover_image.url }}{% endif %}" controls muted preload="none">
+              <source src="{{ course.preview_video.url }}" type="video/mp4">
+              {% trans "Your browser does not support video." %}
+            </video>
+        {% endif %}
+      </div>
+      <div class="cart-item-info">
+        <h2 class="course-title">
+          <a href="{{ item.course.get_absolute_url }}">{{ item.course.title }}</a>
+        </h2>
+        {% comment %} <p class="instructor">{{ item.course.instructor }}</p> {% endcomment %}
+        <span class="price-tag">
+            <span style="direction:ltr; unicode-bidi:bidi-override;">
+                {{ item.course.price|en2fa|intcomma:False }}
+            </span>
+            {% trans "تومان" %}
+        </span>
+      </div>
+      <div class="cart-item-actions">
+        <form action="{% url 'cart:remove' item.course.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="remove-btn">
+            <i class="fa fa-trash"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="cart-summary">
+    <span class="price-tag">
+        <span style="direction:ltr; unicode-bidi:bidi-override;">
+            {{ cart_total|en2fa|intcomma:False }}
+        </span>
+        {% trans "تومان" %}
+    </span>
+    <a href="#" class="checkout-btn">{% trans "ادامه پرداخت" %}</a>
+  </div>
+
+  {% else %}
+  <div class="empty-cart">
+    <i class="fa fa-shopping-cart"></i>
+    <p>{% trans "سبد خرید شما خالی است!" %}</p>
+    <a href="{% url 'courses:course_list' %}" class="back-btn">{% trans "بازگشت به دوره‌ها" %}</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

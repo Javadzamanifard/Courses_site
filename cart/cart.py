@@ -6,7 +6,7 @@ from courses.models import Course
 
 class Cart:
     def __init__(self, request):
-        self.user = request.user
+        self.request = request
         self.session = request.session
         cart = self.session.get('cart')
         if not cart:
@@ -17,7 +17,7 @@ class Cart:
     def add_to_cart(self, course, quantity = 1, override_quantity=False):
         course_id = str(course.id)
         if course_id not in self.cart:
-            self.cart['course_id']['quantity'] = {'quantity':0}
+            self.cart[course_id] = {'quantity': quantity, 'price' : course.price}
         else:
             messages.warning(self.request, _('This course already exists in your cart'))
         self.save()
@@ -55,4 +55,5 @@ class Cart:
     
     
     def get_total_price(self):
+        print("🧾 CART DATA:", self.cart)
         return sum(item['price'] * item['quantity'] for item in self.cart.values())

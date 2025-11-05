@@ -87,30 +87,36 @@
     font-weight: 700;
   }
 
-  .btn-action {
-    border-radius: 12px;
-    font-weight: 600;
-    padding: 0.5rem 1.2rem;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
-  }
+/* ---------- دکمه افزودن به سبد ---------- */
+.btn-cart {
+  background: linear-gradient(135deg, #0078ff 0%, #005fcc 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 10px rgba(0, 122, 255, 0.2);
+}
 
-  .btn-view {
-    background: linear-gradient(to right, #3182ce, #2b6cb0);
-    color: white;
-    border: none;
-  }
+.btn-cart:hover {
+  background: linear-gradient(135deg, #005fcc 0%, #004aad 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 122, 255, 0.25);
+}
 
-  .btn-cart {
-    background: linear-gradient(to right, #d53f8c, #c2185b);
-    color: white;
-    border: none;
-  }
+.btn-cart:active {
+  transform: scale(0.97);
+}
 
-  .btn-action:hover {
-    opacity: 0.95;
-    transform: scale(1.03);
-  }
+.btn-cart i {
+  font-size: 0.95rem;
+}
+
 
   .placeholder-text {
     color: #a0aec0;
