@@ -1,0 +1,37 @@
+{% extends "_base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "دوره‌های من" %}{% endblock %}
+
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/course_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/my_courses.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="my-courses-header">{% trans "دوره‌های من" %}</h1>
+
+    {% if courses %}
+        {% for course in courses %}
+        <div class="my-course-card">
+            <a href="{% url 'courses:course_detail' course.slug %}" class="my-course-title">{{ course.title }}</a>
+            {% if course.short_description %}
+                <p class="my-course-subtitle">{{ course.short_description }}</p>
+            {% endif %}
+            <div class="course-meta">
+                🎓 {% trans "تعداد دانشجویان" %}: {{ course.number_of_students }} |
+                💰 {% if course.is_free %}{% trans "رایگان" %}{% else %}{{ course.price }} تومان{% endif %}
+            </div>
+            <div style="margin-top:1rem;">
+                <a href="{% url 'courses:course_detail' course.slug %}" class="enroll-btn">
+                    {% trans "مشاهده دوره" %}
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-center text-muted">{% trans "شما هنوز در هیچ دوره‌ای ثبت‌نام نکرده‌اید." %}</p>
+    {% endif %}
+</div>
+{% endblock %}

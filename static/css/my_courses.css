@@ -1,0 +1,50 @@
+
+.my-courses-header {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    color: #2563eb;
+    font-weight: 800;
+    font-size: 2rem;
+}
+.my-course-card {
+    background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+    border-radius: 1rem;
+    border: 1px solid #e3ebf3;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+}
+.my-course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.my-course-title {
+    font-weight: 700;
+    color: #1e3a8a;
+    font-size: 1.4rem;
+}
+.my-course-subtitle {
+    color: #374151;
+    font-size: 0.95rem;
+    margin: 0.3rem 0;
+}
+.enroll-btn {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-weight: 600;
+}
+.enroll-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #1e40af, #1d4ed8);
+}
+.course-meta {
+    margin-top: 0.5rem;
+    color: #4b5563;
+    font-size: 0.9rem;
+}

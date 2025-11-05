@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
 from django.db.models import Q
 from django.contrib import messages
@@ -61,3 +61,10 @@ def enrol_in_course(request, slug):
         course.save()
         messages.success(request, _('Your registration was successful ✅'))
     return redirect('courses:course_detail', slug=course.slug)
+
+
+@login_required
+def my_courses(request):
+    enrollments = Enrollment.objects.filter(student=request.user).select_related('course')
+    courses = [enrollment.course for enrollment in enrollments]
+    return render(request, 'courses/my_courses.html', {'courses': courses})
