@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'persiantrans',
     'courses',
     'pages',
+    'cart',
 ]
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
