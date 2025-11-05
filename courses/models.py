@@ -109,3 +109,44 @@ class Enrollment(models.Model):
     
     def __str__(self):
         return f"{self.student.username} - {self.course.title}"
+
+
+# Create Comment model
+class Comment(models.Model):
+    user = models.ForeignKey(
+                settings.AUTH_USER_MODEL,
+                on_delete=models.CASCADE,
+                related_name='comments',)
+    course = models.ForeignKey(
+                Course,
+                on_delete=models.CASCADE,
+                related_name='comments',)
+    content = models.TextField(verbose_name=_("محتوای نظر"))
+    parent = models.ForeignKey(
+                'self', 
+                on_delete=models.CASCADE, 
+                null=True, 
+                blank=True, 
+                related_name='replies', 
+                verbose_name=_("پاسخ به نظر"))
+    created_at = jmodels.jDateTimeField(auto_now_add=True, verbose_name=_("تاریخ ایجاد نظر"))
+    is_active = models.BooleanField(default=True, verbose_name=_("فعال بودن نظر"))
+    
+    
+    def __str__(self):
+        return f"Comment by {self.user.username} on {self.course.title}"
+    
+    
+    class Meta:
+        verbose_name = _("نظر")
+        verbose_name_plural = _("نظرات")
+        ordering = ['-created_at']
+    
+    
+    @property
+    def is_parent(self):
+        return self.parent is None
+    
+    
+    def children(self):
+        return self.replies.filter(is_active=True).order_by('created_at')

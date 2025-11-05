@@ -102,5 +102,40 @@
   </div>
   {% endif %}
 </div>
+<div class="comments-section mt-5">
+  <h4 class="mb-4">{% trans "نظرات کاربران" %}</h4>
+
+ <div class="comments-section mt-5">
+  <h4 class="mb-4">{% trans "نظرات کاربران" %}</h4>
+
+  {% if user.is_authenticated %}
+  <form method="post" class="comment-form mb-4">
+      {% csrf_token %}
+      {{ comment_form.content }}
+      {{ comment_form.parent }}
+      <button type="submit">{% trans "ارسال نظر" %}</button>
+  </form>
+  {% else %}
+  <p class="text-muted">{% trans "برای ارسال نظر لطفاً وارد حساب خود شوید." %}</p>
+  {% endif %}
+
+  {% include "partials/comment.html" with comments=comments %}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const replyButtons = document.querySelectorAll('.reply-btn');
+  replyButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const commentId = btn.getAttribute('data-comment-id');
+      const form = document.getElementById(`reply-form-${commentId}`);
+      form.classList.toggle('d-none');
+    });
+  });
+});
+</script>
+
+
+
 {% endblock %}
 

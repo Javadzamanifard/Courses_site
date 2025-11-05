@@ -5,7 +5,8 @@ from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.contrib.auth.decorators import login_required
 
-from .models import Course, Enrollment
+from .models import Course, Enrollment, Comment
+from .forms import CommentForm
 
 
 class CourseListView(generic.ListView):
@@ -46,6 +47,35 @@ class CourseDetailView(generic.DetailView):
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
     queryset = Course.objects.filter(is_active=True)
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comments'] = self.object.comments.filter(parent__isnull=True, is_active=True)
+        context['comment_form'] = CommentForm()
+        return context
+    
+    
+    def post(self, request, *args, **kwargs):
+        course = self.get_object()
+        comment_form = CommentForm(request.POST)
+        
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            if request.user.is_authenticated:
+                comment.user = request.user
+                comment.course = course
+            parent_id = request.POST.get('parent_id')
+            if parent_id:
+                parent_comments = Comment.objects.filter(id=parent_id, course=course).first()
+                if parent_comments:
+                    comment.parent = parent_comments
+            comment.save()
+            messages.success(request, _('Your comment has been posted successfully!'))
+        else:
+            messages.error(request, _('There was an error posting your comment. Please try again.'))
+        
+        return redirect('courses:course_detail', slug=course.slug)
 
 
 @login_required

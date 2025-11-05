@@ -1,0 +1,40 @@
+
+{% load i18n %}
+{% for comment in comments %}
+<div class="comment" style="margin-left: {{ level|default:0 }}px;">
+    <div class="comment-body">
+        <strong>{{ comment.user.username }}</strong>
+        <p>{{ comment.content }}</p>
+        <small class="text-muted">{{ comment.created_at|date:"Y/m/d - H:i" }}</small>
+        {% if user.is_authenticated %}
+        <button class="reply-btn" data-comment-id="{{ comment.id }}">{% trans "پاسخ" %}</button>
+        {% endif %}
+    </div>
+
+    <!-- فرم پاسخ‌دهی -->
+   <form method="post" class="reply-form d-none mt-3" id="reply-form-{{ comment.id }}">
+        {% csrf_token %}
+        <textarea 
+            name="content"
+            rows="2"
+            class="reply-textarea"
+            placeholder="پاسخ خود را بنویسید..."
+            required></textarea>
+        
+        <input type="hidden" name="parent_id" value="{{ comment.id }}">
+        
+        <div class="reply-actions">
+            <button type="submit" class="reply-submit">ارسال پاسخ</button>
+            <button type="button" class="reply-cancel" onclick="this.closest('.reply-form').classList.add('d-none')">
+            انصراف
+            </button>
+        </div>
+    </form>
+
+
+    <!-- ریپلای‌های این کامنت (recursive) -->
+    {% if comment.replies.all %}
+        {% include "partials/comment.html" with comments=comment.replies.all level=level|default:0|add:"40" %}
+    {% endif %}
+</div>
+{% endfor %}

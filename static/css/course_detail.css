@@ -169,3 +169,249 @@ body {
 .student-count strong {
   color: #2563eb;
 }
+
+
+/* ======= بخش کامنت‌ها ======= */
+.course-comments {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.course-comments h4 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #004aad;
+}
+
+.comment-item {
+    background-color: #ffffff;
+    border: 1px solid #e2e6ea;
+    border-radius: 10px;
+    padding: 1rem;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.comment-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.comment-item strong {
+    color: #1e293b;
+}
+
+.comment-item p {
+    margin: 0.5rem 0 0 0;
+    color: #495057;
+    line-height: 1.5;
+}
+
+.comment-item small {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* پاسخ‌ها */
+.comment-reply {
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border-left: 3px solid #0078ff;
+}
+
+.comment-reply p {
+    margin: 0.2rem 0 0 0;
+    font-size: 0.95rem;
+}
+
+/* لینک پاسخ */
+.reply-link {
+    font-size: 0.85rem;
+    color: #0078ff;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.reply-link:hover {
+    color: #005fcc;
+    text-decoration: underline;
+}
+
+/* فرم کامنت */
+.comment-form {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e2e6ea;
+    margin-top: 1.5rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.comment-form:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.comment-form h5 {
+    font-weight: 600;
+    color: #004aad;
+    margin-bottom: 1rem;
+}
+
+.comment-form .form-control {
+    border-radius: 8px;
+    resize: none;
+    font-size: 0.95rem;
+    padding: 0.8rem;
+    border: 1px solid #ced4da;
+}
+
+.comment-form .btn {
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+}
+
+#cancel-reply {
+    margin-left: 0.5rem;
+}
+
+/* پاسخ دادن کارت‌ها در حالت موبایل */
+@media (max-width: 768px) {
+    .comment-reply {
+        margin-left: 1rem !important;
+    }
+}
+
+
+.comment-textarea {
+  background-color: #f9fafb;
+  color: #1f2937;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.comment-textarea:focus {
+  background-color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  outline: none;
+}
+
+.comment-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.comment-form button[type="submit"] {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  margin-top: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.comment-form button[type="submit"]:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+
+.comment {
+  background: #f9fafb;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.comment .reply {
+  background: #fff;
+  border-left: 3px solid #3b82f6;
+}
+
+.reply-btn {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.reply-btn:hover {
+  text-decoration: underline;
+}
+
+.reply-form {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.reply-textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  resize: vertical;
+  transition: all 0.2s ease;
+}
+
+.reply-textarea:focus {
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+  outline: none;
+}
+
+.reply-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.reply-submit {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 14px;
+}
+
+.reply-submit:hover {
+  background: #2563eb;
+}
+
+.reply-cancel {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.reply-cancel:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-4px);}
+  to {opacity: 1; transform: translateY(0);}
+}

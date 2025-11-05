@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Course, Lesson, Enrollment
+from .models import Course, Lesson, Enrollment, Comment
 
 
 # Create an inline admin interface for Lesson
@@ -28,3 +28,19 @@ class EnrollmentAdmin(admin.ModelAdmin):
     search_fields = ['student__username', 'course__title']
     list_filter = ['enrolled_at']
     ordering = ['-enrolled_at']
+
+
+# Register the Comment model with the admin site
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'course', 'user', 'is_active', 'created_at')
+    list_filter = ('is_active', 'created_at')
+    search_fields = ('user__username', 'content', 'course__title')
+    actions = ('approve_comments',)
+    readonly_fields = ('created_at',)
+    
+    
+    def approve_comments(self, request, queryset):
+        updated = queryset.update(is_active=True)
+        self.message_user(request, f"{updated} دیدگاه تایید شد.")
+    approve_comments.short_description = "تایید دیدگاه‌های انتخاب‌شده"
