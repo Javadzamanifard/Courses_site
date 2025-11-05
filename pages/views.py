@@ -14,6 +14,10 @@ class AboutUs(TemplateView):
     template_name = 'pages/about.html'
 
 
+class BecomeInstructor(TemplateView):
+    template_name = 'pages/become_instructor.html'
+
+
 class TermsAndConditions(TemplateView):
     template_name = 'pages/terms_conditions.html'
 

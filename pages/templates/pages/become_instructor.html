@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+{% load i18n static %}
+
+{% block title %}🎓 مدرس شدن{% endblock %}
+
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/become_instructor.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="become-instructor-section py-5">
+  <div class="container text-center">
+    <h1 class="section-title">{% trans "🎓 می‌خواهید مدرس شوید؟" %}</h1>
+    <p class="section-text mt-3">
+      {% trans "اگر به آموزش و به اشتراک گذاشتن دانش خود علاقه‌مند هستید، ما مشتاق همکاری با شما هستیم." %}
+      <br>
+      {% trans "برای اطلاعات بیشتر و شروع مسیر مدرس شدن، کافی است با ما تماس بگیرید." %}
+    </p>
+    <a href="{% url 'pages:contact_us_submit'%}" class="btn btn-primary mt-4">
+      {% trans "ارتباط با ما" %}
+    </a>
+  </div>
+</section>
+{% endblock %}
