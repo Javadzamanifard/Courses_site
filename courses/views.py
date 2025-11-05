@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect
 from django.views import generic
 from django.db.models import Q
+from django.contrib import messages
+from django.utils.translation import gettext as _
+from django.contrib.auth.decorators import login_required
 
-from .models import Course
+from .models import Course, Enrollment
 
 
 class CourseListView(generic.ListView):
@@ -43,3 +46,18 @@ class CourseDetailView(generic.DetailView):
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
     queryset = Course.objects.filter(is_active=True)
+
+
+@login_required
+def enrol_in_course(request, slug):
+    course = get_object_or_404(Course, slug=slug)
+    already_exists = Enrollment.objects.filter(student=request.user, course=course).exists()
+    
+    if already_exists:
+        messages.warning(request, _('You are already enrolled in this course'))
+    else:
+        Enrollment.objects.create(student=request.user, course=course)
+        course.number_of_students += 1
+        course.save()
+        messages.success(request, _('Your registration was successful ✅'))
+    return redirect('courses:course_detail', slug=course.slug)

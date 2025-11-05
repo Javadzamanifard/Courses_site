@@ -16,6 +16,26 @@
     <p class="text-muted fs-5 mt-2">{{ course.subtitle }}</p>
     {% endif %}
   </div>
+  <!-- دکمه ثبت‌نام و تعداد دانشجویان -->
+      <div class="enroll-container mt-4">
+        {% if user.is_authenticated %}
+          <form method="post" action="{% url 'courses:enroll' course.slug %}">
+            {% csrf_token %}
+            <button type="submit" class="enroll-btn">
+              🎓 {% trans "Enroll in course" %}
+            </button>
+          </form>
+        {% else %}
+          <a href="{% url 'account_login' %}?next={{ request.path }}" class="enroll-btn">
+            🔑 {% trans "Login To Enroll" %}
+          </a>
+        {% endif %}
+        <p class="student-count mt-2">
+          👥 {% trans "Number Of Students" %}: <strong>{{ course.enrollments.count }}</strong>
+        </p>
+      </div>
+    </div>
+
 
 
 
