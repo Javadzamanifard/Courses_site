@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-01 07:50-0700\n"
-"PO-Revision-Date: 2025-11-01 07:54+0330\n"
+"POT-Creation-Date: 2025-11-05 04:10-0800\n"
+"PO-Revision-Date: 2025-11-05 04:14+0330\n"
 "Last-Translator:   <mohammad@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,70 +18,79 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: .\templates\profiles\profile_detail.html:28
+#: .\profiles\templates\profiles\profile_detail.html:31
 msgid "Teacher"
 msgstr "مدرس"
 
-#: .\templates\profiles\profile_detail.html:30
+#: .\profiles\templates\profiles\profile_detail.html:33
 msgid "Student"
 msgstr "دانشجو"
 
-#: .\templates\profiles\profile_detail.html:35
+#: .\profiles\templates\profiles\profile_detail.html:38
 msgid "Biography"
 msgstr "بیوگرافی"
 
-#: .\templates\profiles\profile_detail.html:39
+#: .\profiles\templates\profiles\profile_detail.html:42
 msgid "There is no biography recorded for this user."
 msgstr "بیوگرافی برای این کاربر ثبت نشده است"
 
-#: .\templates\profiles\profile_detail.html:49
+#: .\profiles\templates\profiles\profile_detail.html:52
 msgid "Full Name"
 msgstr "نام کامل"
 
-#: .\templates\profiles\profile_detail.html:53
+#: .\profiles\templates\profiles\profile_detail.html:56
 msgid "Email"
 msgstr "ایمیل"
 
-#: .\templates\profiles\profile_detail.html:57
+#: .\profiles\templates\profiles\profile_detail.html:60
 msgid "Phone Number "
 msgstr "شماره همراه"
 
-#: .\templates\profiles\profile_detail.html:61
+#: .\profiles\templates\profiles\profile_detail.html:66
 msgid "Date Joined"
 msgstr "تاریخ عضویت"
 
-#: .\templates\profiles\profile_detail.html:65
+#: .\profiles\templates\profiles\profile_detail.html:73
+#: .\profiles\templates\profiles\profile_detail.html:80
 msgid "Birth Date"
 msgstr "تاریخ تولد"
 
-#: .\templates\profiles\profile_detail.html:74
+#: .\profiles\templates\profiles\profile_detail.html:80
+msgid "Not registered"
+msgstr "ثبت نشده"
+
+#: .\profiles\templates\profiles\profile_detail.html:90
 msgid "Edit Profile"
 msgstr "ویرایش پروفایل"
 
-#: .\templates\profiles\profile_form.html:16
+#: .\profiles\templates\profiles\profile_detail.html:93
+msgid "Back to Home"
+msgstr "برگشت به خانه"
+
+#: .\profiles\templates\profiles\profile_form.html:16
 msgid "Edit profile"
 msgstr "ویرایش پروفایل"
 
-#: .\templates\profiles\profile_form.html:26
+#: .\profiles\templates\profiles\profile_form.html:26
 msgid "User info"
 msgstr "اطلاعات کاربری"
 
-#: .\templates\profiles\profile_form.html:32
+#: .\profiles\templates\profiles\profile_form.html:32
 msgid "Profile info"
 msgstr "اطلاعات پروفایل"
 
-#: .\templates\profiles\profile_form.html:39
+#: .\profiles\templates\profiles\profile_form.html:39
 msgid "Back"
 msgstr "بازگشت"
 
-#: .\templates\profiles\profile_form.html:42
+#: .\profiles\templates\profiles\profile_form.html:42
 msgid "Save"
 msgstr "ذخیره"
 
-#: .\views.py:40
+#: .\profiles\views.py:40
 msgid "Your profile has been successfully updated."
 msgstr "پروفایل شما با موفقیت به‌روزرسانی شد."
 
-#: .\views.py:43
+#: .\profiles\views.py:43
 msgid "Please check the form for errors."
 msgstr "لطفا فرم را از نظر خطا بررسی کنید."

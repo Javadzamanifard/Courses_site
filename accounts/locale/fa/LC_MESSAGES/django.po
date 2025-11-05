@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-01 07:49-0700\n"
+"POT-Creation-Date: 2025-11-05 04:10-0800\n"
 "PO-Revision-Date: 2025-11-01 07:51+0330\n"
 "Last-Translator:   <mohammad@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,34 +18,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: .\models.py:8
+#: .\accounts\models.py:8
 msgid "phone_number"
 msgstr "شماره همراه"
 
-#: .\models.py:9
+#: .\accounts\models.py:9
 msgid "Im instructor"
 msgstr "مدرس هستم"
 
-#: .\models.py:10
+#: .\accounts\models.py:10
 msgid "Im student"
 msgstr "داشجو هستم"
 
-#: .\templates\accounts\home.html:38
-msgid "My school"
-msgstr "آموزشگاه من"
+#~ msgid "My school"
+#~ msgstr "آموزشگاه من"
 
-#: .\templates\accounts\home.html:46
-msgid "Logout"
-msgstr "خروج"
+#~ msgid "Logout"
+#~ msgstr "خروج"
 
-#: .\templates\accounts\home.html:49
-msgid "profile"
-msgstr "پروفایل"
+#~ msgid "profile"
+#~ msgstr "پروفایل"
 
-#: .\templates\accounts\home.html:53
-msgid "Login"
-msgstr "ورود"
+#~ msgid "Login"
+#~ msgstr "ورود"
 
-#: .\templates\accounts\home.html:56
-msgid "Signup"
-msgstr "ثبت نام"
+#~ msgid "Signup"
+#~ msgstr "ثبت نام"

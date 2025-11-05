@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-05 04:18-0800\n"
+"PO-Revision-Date: 2025-11-05 04:24+0330\n"
+"Last-Translator:   <mohammad@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: .\models.py:14
+msgid "عنوان دوره"
+msgstr ""
+
+#: .\models.py:15 .\templates\courses\course_detail.html:100
+msgid "توضیحات دوره"
+msgstr ""
+
+#: .\models.py:16
+msgid "توضیحات کوتاه دوره"
+msgstr ""
+
+#: .\models.py:21
+msgid "مدرس دوره"
+msgstr ""
+
+#: .\models.py:23
+msgid "تاریخ ایجاد"
+msgstr ""
+
+#: .\models.py:24
+msgid "تاریخ بروزرسانی"
+msgstr ""
+
+#: .\models.py:25
+msgid "قیمت دوره (به تومان)"
+msgstr ""
+
+#: .\models.py:26
+msgid "رایگان بودن دوره"
+msgstr ""
+
+#: .\models.py:27
+msgid "فعال بودن دوره"
+msgstr ""
+
+#: .\models.py:28
+msgid "اسلاگ دوره"
+msgstr ""
+
+#: .\models.py:33
+msgid "ویدئو پیش نمایش دوره"
+msgstr ""
+
+#: .\models.py:39
+msgid "تصویر کاور دوره"
+msgstr ""
+
+#: .\models.py:41 .\templates\courses\my_courses.html:23
+msgid "تعداد دانشجویان"
+msgstr ""
+
+#: .\models.py:45 .\models.py:68 .\models.py:98
+msgid "دوره"
+msgstr ""
+
+#: .\models.py:46
+msgid "دوره‌ها"
+msgstr ""
+
+#: .\models.py:69
+msgid "عنوان درس"
+msgstr ""
+
+#: .\models.py:70
+msgid "محتوای درس"
+msgstr ""
+
+#: .\models.py:71
+msgid "ویدئو درس"
+msgstr ""
+
+#: .\models.py:72
+msgid "مدت زمان درس"
+msgstr ""
+
+#: .\models.py:73
+msgid "ترتیب درس"
+msgstr ""
+
+#: .\models.py:81
+msgid "درس"
+msgstr ""
+
+#: .\models.py:82
+msgid "درس‌ها"
+msgstr ""
+
+#: .\models.py:92
+msgid "دانشجو"
+msgstr ""
+
+#: .\models.py:100
+msgid "تاریخ ثبت‌نام"
+msgstr ""
+
+#: .\models.py:104
+msgid "ثبت‌نام"
+msgstr ""
+
+#: .\models.py:105
+msgid "ثبت‌نام‌ها"
+msgstr ""
+
+#: .\templates\courses\course_detail.html:25
+msgid "Enroll in course"
+msgstr "ثبت نام در دوره"
+
+#: .\templates\courses\course_detail.html:30
+msgid "Login To Enroll"
+msgstr "ورود برای ثبت نام"
+
+#: .\templates\courses\course_detail.html:34
+msgid "Number Of Students"
+msgstr "تعداد دانشجویان"
+
+#: .\templates\courses\course_detail.html:51
+msgid "فصل"
+msgstr ""
+
+#: .\templates\courses\course_detail.html:83
+msgid "ویدئو پشتیبانی نمی‌شود."
+msgstr ""
+
+#: .\templates\courses\course_list.html:5
+#: .\templates\courses\course_list.html:12
+msgid "Training courses"
+msgstr "دوره های آموزشی"
+
+#: .\templates\courses\course_list.html:17
+msgid "همه دوره‌ها"
+msgstr ""
+
+#: .\templates\courses\course_list.html:19
+#: .\templates\courses\my_courses.html:24
+msgid "رایگان"
+msgstr ""
+
+#: .\templates\courses\course_list.html:21
+msgid "ویژه"
+msgstr ""
+
+#: .\templates\courses\course_list.html:32
+msgid "Your browser does not support video."
+msgstr "مرورگر شما از ویدئو پشتیبانی نمی‌کند."
+
+#: .\templates\courses\course_list.html:35
+#: .\templates\courses\course_list.html:40
+#: .\templates\courses\course_list.html:45
+#: .\templates\courses\course_list.html:58
+msgid "Free"
+msgstr "رایگان"
+
+#: .\templates\courses\course_list.html:43
+msgid "There is no video or image available for this course."
+msgstr "هیچ فیلم یا تصویری از این دوره موجود نیست."
+
+#: .\templates\courses\course_list.html:59
+msgid "View course"
+msgstr "مشاهده دوره"
+
+#: .\templates\courses\course_list.html:65
+msgid "تومان"
+msgstr ""
+
+#: .\templates\courses\course_list.html:67
+msgid "Add to"
+msgstr "اضافه به سبد خرید"
+
+#: .\templates\courses\course_list.html:76
+msgid "No course found."
+msgstr "دوره ایی یافت نشد"
+
+#: .\templates\courses\course_list.html:77
+msgid "Unfortunately, no courses are currently available."
+msgstr "متاسفانه در حال حاضر هیچ دوره ای ارائه نمی شود."
+
+#: .\templates\courses\my_courses.html:4
+#: .\templates\courses\my_courses.html:13
+msgid "دوره‌های من"
+msgstr ""
+
+#: .\templates\courses\my_courses.html:28
+msgid "مشاهده دوره"
+msgstr ""
+
+#: .\templates\courses\my_courses.html:34
+msgid "شما هنوز در هیچ دوره‌ای ثبت‌نام نکرده‌اید."
+msgstr ""
+
+#: .\views.py:57
+msgid "You are already enrolled in this course"
+msgstr "شما قبلاً در این دوره ثبت نام کرده‌اید"
+
+#: .\views.py:62
+msgid "Your registration was successful ✅"
+msgstr "ثبت نام شما با موفقیت انجام شد"
