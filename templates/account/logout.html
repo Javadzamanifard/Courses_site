@@ -1,39 +1,33 @@
 {% extends "_base.html" %}
-{% load static i18n%}
+{% load static i18n %}
 
-{% block title %}Confirm Logout{% endblock %}
-
+{% block title %}{% trans "Logout" %}{% endblock %}
 
 {% block CSS %}
-    <link rel="stylesheet" href="{% static 'css/logout.css' %}">
-{% endblock CSS %}
-
+<link rel="stylesheet" href="{% static 'css/logout.css' %}">
+{% endblock %}
 
 {% block content %}
-<div class="logout-card center">
-    <div class="card-header">
-        <div class="card-icon">
-            <i class="bi bi-box-arrow-right"></i>
+<div class="logout-container">
+    <div class="logout-card animate-slide">
+        <div class="card-header text-center">
+            <i class="bi bi-box-arrow-right logout-icon"></i>
+            <h2>{% trans "Logout" %}</h2>
         </div>
-        <h4>Confirm Logout</h4>
-    </div>
-    <div class="card-body">
-        <p class="lead">{% trans "Are you sure you want to log out?" %}</p>
-        <p class="text-muted">
-            {% trans "Your session will end, and you’ll need to sign in again to continue." %}
+
+        <p class="logout-text">
+            {% trans "Are you sure you want to log out of your account?" %}
         </p>
 
-        <div class="btn-group">
-            <form method="post" class="w-100">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-logout">
-                    <i class="bi bi-door-closed me-1"></i> {% trans "Log Out" %}
-                </button>
-            </form>
-            <a href="#" class="btn btn-cancel d-flex align-items-center justify-content-center">
-                <i class="bi bi-arrow-left me-1"></i> {% trans "Cancel" %}
+        <form method="post" class="logout-form">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-logout">
+                <i class="bi bi-door-closed me-1"></i> {% trans "Log me out" %}
+            </button>
+            <a href="{% url 'accounts:home' %}" class="btn btn-cancel">
+                <i class="bi bi-arrow-left me-1"></i> {% trans "Cancell" %}
             </a>
-        </div>
+        </form>
     </div>
 </div>
 {% endblock %}

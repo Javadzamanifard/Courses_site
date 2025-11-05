@@ -75,7 +75,7 @@
   color: #005fcc;
 }
 
-/* ---------- Dropdown ---------- */
+/* ---------- Dropdown اصلاح شده ---------- */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -84,9 +84,18 @@
 .dropdown-content {
   display: none;
   position: absolute;
+  top: 100%;
+  right: -130px;
+  left: auto;
   background: #fff;
-  min-width: 190px;
   border-radius: 12px;
+  border: 1px solid rgba(0, 102, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 50, 200, 0.1), 
+                0 0 0 1px rgba(0, 0, 0, 0.03);
+  min-width: 200px;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   box-shadow: 0 10px 25px rgba(0,0,0,0.12);
   padding: 10px 0;
   z-index: 1001;
@@ -94,22 +103,47 @@
   animation: fadeIn 0.25s ease;
 }
 
+
+
 .dropdown-content a {
   color: #333;
   padding: 8px 15px;
   display: block;
   text-decoration: none;
   transition: all 0.2s;
+  font-weight: 300;
+  border-radius: 6px;
+  white-space: normal; 
+  word-wrap: break-word;
 }
 
 .dropdown-content a:hover {
   background-color: #f5f9ff;
   color: #004aad;
-  padding-right: 20px;
+  padding-right: 20px; /* افکت hover زیبا */
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+
+.dropdown-content.left-aligned {
+  right: -30px;
+  left: auto;
+}
+
+/* جداکننده بین لینک‌ها */
+.dropdown-divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 6px 0;
+}
+
+/* انیمیشن نمایش منو */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-5px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
 /* ---------- وسط: نوار جست‌وجو ---------- */

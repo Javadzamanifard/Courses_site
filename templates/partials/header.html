@@ -49,10 +49,11 @@
           <span>{{ user.first_name|default:user.username|default:_("کاربر") }}</span>
           <i class="arrow-down"></i>
         </button>
-        <div class="dropdown-content left-aligned">
+        <div class="dropdown-content">
           {% if user.is_authenticated %}
           <a href="{% url 'profiles:detail' user.profile.slug %}">{% trans "پروفایل من" %}</a>
           <a href="{% url 'courses:my_courses' %}">{% trans "دوره‌های من" %}</a>
+          <a href="{% url 'account_change_password' %}">{% trans "Password Change" %}</a>
           <div class="dropdown-divider"></div>
             <a href="{% url 'account_logout' %}" class="logout-link">{% trans "خروج" %}</a>
           {% else %}
