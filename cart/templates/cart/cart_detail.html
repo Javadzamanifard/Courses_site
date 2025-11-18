@@ -54,7 +54,7 @@
         </span>
         {% trans "تومان" %}
     </span>
-    <a href="#" class="checkout-btn">{% trans "ادامه پرداخت" %}</a>
+    <a href="{% url 'payment:request' %}" class="checkout-btn">{% trans "ادامه پرداخت" %}</a>
   </div>
 
   {% else %}

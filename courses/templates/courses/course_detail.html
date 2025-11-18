@@ -104,10 +104,6 @@
 </div>
 <div class="comments-section mt-5">
   <h4 class="mb-4">{% trans "نظرات کاربران" %}</h4>
-
- <div class="comments-section mt-5">
-  <h4 class="mb-4">{% trans "نظرات کاربران" %}</h4>
-
   {% if user.is_authenticated %}
   <form method="post" class="comment-form mb-4">
       {% csrf_token %}

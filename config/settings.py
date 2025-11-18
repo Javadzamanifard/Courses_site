@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'courses',
     'pages',
     'cart',
+    'payment',
 ]
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
@@ -213,3 +214,6 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': ','.join(['codesnippet', 'uploadimage']),
     },
 }
+
+# zarinpall config
+ZARINPAL_MERCHANT_ID = env.str('ZARINPAL_MERCHANT_ID')
