@@ -48,13 +48,29 @@
   </div>
 
   <div class="cart-summary">
-    <span class="price-tag">
-        <span style="direction:ltr; unicode-bidi:bidi-override;">
-            {{ cart_total|en2fa|intcomma:False }}
-        </span>
-        {% trans "تومان" %}
-    </span>
+      <div class="summary-line total-price">
+          <strong>{% trans "قابل پرداخت" %}</strong>
+          <span class="price-tag">
+              <span style="direction:ltr; unicode-bidi:bidi-override;">
+                  {{ cart_total|en2fa|intcomma:False }}
+              </span>
+              <strong>{% trans "تومان" %}</strong>
+          </span>
+      </div>
     <a href="{% url 'payment:request' %}" class="checkout-btn">{% trans "ادامه پرداخت" %}</a>
+  </div>
+  
+  <!-- فرم کوپن -->
+  <div class="container mt-3">
+      <p class="font-weight-bold">کد تخفیف دارید؟</p>
+      <form method="post">
+          {% csrf_token %}
+          <div class="input-group input-group">
+              <div class="flex-grow-2"> {{ coupon_form.code }} 
+                  <button type="submit" class="btn btn-success mt-2">اعمال</button>
+              </div>
+          </div>
+      </form>
   </div>
 
   {% else %}
