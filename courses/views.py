@@ -1,3 +1,4 @@
+from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
 from django.db.models import Q
@@ -5,8 +6,10 @@ from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.contrib.auth.decorators import login_required
 
-from .models import Course, Enrollment, Comment
+from .models import Course, Enrollment, Comment, Wishlist
 from .forms import CommentForm
+
+from django.views.generic import ListView
 
 
 class CourseListView(generic.ListView):
@@ -37,6 +40,13 @@ class CourseListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['course_type'] = self.request.GET.get('type', None)
+        if self.request.user.is_authenticated:
+            wishlist_slugs = Wishlist.objects.filter(
+                user=self.request.user
+            ).values_list('course__slug', flat=True)
+            context['wishlist_slugs'] = list(wishlist_slugs)
+        else:
+            context['wishlist_slugs'] = []
         return context
 
 
@@ -98,3 +108,53 @@ def my_courses(request):
     enrollments = Enrollment.objects.filter(student=request.user).select_related('course')
     courses = [enrollment.course for enrollment in enrollments]
     return render(request, 'courses/my_courses.html', {'courses': courses})
+
+
+
+@login_required
+def add_to_wishlist(request, slug):
+    try:
+        course = Course.objects.get(slug=slug)
+    except Course.DoesNotExist:
+        raise Http404("دوره مورد نظر یافت نشد.")
+    
+    wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, course=course)
+    if created:
+        messages.success(request, f"دوره '{course.title}' با موفقیت به لیست علاقه‌مندی‌ها اضافه شد.")
+    else:
+        messages.info(request, f"دوره '{course.title}' قبلاً در لیست علاقه‌مندی‌های شما وجود داشت.")
+    total = Wishlist.objects.filter(user=request.user).count()
+    return redirect('courses:course_list')
+
+
+
+@login_required
+def remove_from_wishlist(request, slug):
+    deleted_count, _ = Wishlist.objects.filter(
+        user=request.user, 
+        course__slug=slug
+    ).delete()
+    
+    if deleted_count > 0:
+        messages.success(request, "دوره با موفقیت از لیست علاقه‌مندی‌ها حذف شد.")
+    else:
+        messages.error(request, "دوره در لیست علاقه‌مندی‌های شما یافت نشد.")
+        
+    return redirect('courses:wishlist_list') 
+
+
+class WishlistListView(ListView):
+    model = Wishlist
+    template_name = 'courses/wishlist.html'
+    context_object_name = 'wishlist_items'
+    paginate_by = 10 
+
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return Wishlist.objects.filter(user=self.request.user).select_related('course')
+        return Wishlist.objects.none() # اگر کاربر لاگین نبود، لیست خالی برمی‌گرداند
+        
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'لیست علاقه‌مندی‌های من'
+        return context

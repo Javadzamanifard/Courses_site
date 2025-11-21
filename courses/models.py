@@ -150,3 +150,28 @@ class Comment(models.Model):
     
     def children(self):
         return self.replies.filter(is_active=True).order_by('created_at')
+
+
+# Create Wishlist model
+class Wishlist(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.CASCADE, 
+        verbose_name=_('نام کاربری'), 
+        related_name='wishlist_items')
+    course = models.ForeignKey(
+        Course, 
+        on_delete=models.CASCADE, 
+        verbose_name=_('دوره'), 
+        related_name='wishlisted_by')
+    date_add = models.DateTimeField(auto_now_add=True, verbose_name=_('تاریخ اضافه شدن'))
+    
+    
+    class Meta:
+        unique_together = ('user', 'course')
+        verbose_name = "لیست علاقه‌مندی"
+        verbose_name_plural = "لیست‌های علاقه‌مندی"
+    
+    
+    def __str__(self):
+        return f'{self.courses} : {self.user}'

@@ -46,13 +46,34 @@
             {% endif %}
           {% endif %}
         </div>
-
         <div class="card-body d-flex flex-column p-4">
-          <h5 class="course-title mb-3">{{ course.title }}</h5>
+          <h5 class="course-title mb-3">{{ course.title }}</h5><div class="wishlist-action">
+          {% if request.user.is_authenticated %}
+              {% if course.slug in wishlist_slugs %}
+                  <form method="POST" action="{% url 'courses:remove_from_wishlist' course.slug %}" style="display:inline;">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-link wishlist-btn added" title="حذف از علاقه‌مندی‌ها">
+                          <i class="fas fa-heart" style="color: red;"></i>
+                      </button>
+                  </form>
+              {% else %}
+                  <form method="POST" action="{% url 'courses:add_to_wishlist' course.slug %}" style="display:inline;">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-link wishlist-btn" title="افزودن به علاقه‌مندی‌ها">
+                          <i class="far fa-heart" style="color: gray;"></i> 
+                      </button>
+                  </form>
+              {% endif %}
+              
+          {% else %}
+              <button class="btn btn-link wishlist-btn disabled" title="برای افزودن باید وارد شوید" onclick="window.location.href='{% url 'login' %}?next={{ request.path }}'">
+                  <i class="far fa-heart" style="color: lightgray;"></i>
+              </button>
+          {% endif %}
+      </div>
           <p class="text-muted mb-4 flex-grow-1" style="font-size: 0.95rem;">
             {{ course.short_description|truncatewords:20 }}
           </p>
-
           <div class="d-flex justify-content-between align-items-center mt-auto">
             {% if course.is_free %}
               <span class="text-success fw-bold">{% trans "Free" %}</span>
@@ -71,8 +92,6 @@
                     <i class="fa fa-shopping-cart me-1"></i> {% trans "Add to cart" %}
                   </button>
                 </form>
-
-              {% comment %} <a href="#" class="btn btn-cart btn-sm px-3 py-2">{% trans "Add to" %}</a> {% endcomment %}
             {% endif %}
           </div>
         </div>

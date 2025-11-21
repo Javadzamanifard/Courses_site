@@ -1,0 +1,61 @@
+{% extends '_base.html' %} 
+{% load jalali_tags %}
+
+{% block content %}
+    <div class="container my-5">
+        
+        <h1 class="mb-4">لیست علاقه‌مندی‌های من ❤️</h1>
+        <hr>
+        {% if wishlist_items %}
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>عنوان دوره</th>
+                            <th>تاریخ افزودن</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in wishlist_items %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>
+                                    <a href="{% url 'courses:course_detail' item.course.slug %}" class="font-weight-bold">
+                                        {{ item.course.title }}
+                                    </a>
+                                </td>
+                                <td>{{ item.date_add|to_jalali:'%Y/%m/%d' }}</td>
+                                <td>
+                                    <form method="POST" action="{% url 'courses:remove_from_wishlist' item.course.slug %}" style="display:inline;">
+                                        {% csrf_token %} 
+                                        
+                                        <button type="submit" class="btn btn-sm btn-danger" 
+                                                onclick="return confirm('آیا مطمئنید که می‌خواهید دوره «{{ item.course.title }}» را حذف کنید؟')">
+                                            حذف <i class="fas fa-trash-alt mr-1"></i>
+                                        </button>
+                                    </form>
+                                    
+                                    <a href="{% url 'courses:course_detail' item.course.slug %}" class="btn btn-sm btn-info ml-2">
+                                        مشاهده دوره
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            {% if is_paginated %}
+            {% endif %}
+
+        {% else %}
+            <div class="alert alert-info text-center mt-5">
+                <p class="mb-3">لیست علاقه‌مندی‌های شما خالی است. هیچ دوره‌ای در اینجا پیدا نشد.</p>
+                <a href="{% url 'courses:course_list' %}" class="btn btn-primary">شروع به جستجوی دوره‌ها</a>
+            </div>
+        {% endif %}
+        
+    </div>
+{% endblock %}
