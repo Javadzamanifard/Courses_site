@@ -47,9 +47,9 @@
       </a>
       <a href="{% url 'courses:wishlist_list' %}" class="icon" title="{% trans 'علاقه‌مندی‌ها' %}">
         <i class="fa fa-heart"></i>
-            {% if total > 0 %}
-              <span class="cart-badge">{{ total_items }}</span>
-            {% endif %}
+        {% if wishlist_total > 0 %}
+        <span class="badge">{{ wishlist_total }}</span>
+        {% endif %}
       </a>
 
       <!-- منوی پروفایل -->
